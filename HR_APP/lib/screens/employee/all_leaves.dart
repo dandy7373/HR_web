@@ -83,7 +83,7 @@ class AllLeaveState extends State<AllLeave>{
                 
                 height:50,
                 width:600,
-                child: Center(child:Text('Pending works',style: TextStyle(color: Colors.white,fontSize: 20))),
+                child: Center(child:Text('Approved Leaves',style: TextStyle(color: Colors.white,fontSize: 20))),
               ),
               Container(
                 width:600,

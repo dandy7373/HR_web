@@ -29,19 +29,35 @@ class Firstscreen extends StatelessWidget{
         
         child:Container(
           height:250,
-          width: 100,
+          width: 880,
           child:Column(
             children:[ 
-              RaisedButton(onPressed: (){
+              Container(
+                height: 75,
+                width: 400,
+                decoration:BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),), 
+                child: RaisedButton(onPressed: (){
                 Navigator.of(context).push(MaterialPageRoute(builder:(context)=>LoginorRegister()));
               },
+              color: Colors.blueGrey[300],
           child: Text("Organization")),
+              ),
           SizedBox(height:20),
-            RaisedButton(
+          Container(
+            height: 75,
+            width: 400,
+                decoration:BoxDecoration(
+                    color: Colors.blueGrey[300],
+                borderRadius: BorderRadius.all(Radius.circular(20)),), 
+                child: RaisedButton(
             child: Text("employee"),
+            color: Colors.blueGrey[300],
             onPressed: (){
               Navigator.of(context).push(MaterialPageRoute(builder:(context)=>EmpLoginorRegister()));
             },)
+              ),
+            
             ]
           
     )),)

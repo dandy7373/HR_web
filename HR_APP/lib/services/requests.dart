@@ -141,33 +141,33 @@ Future<EmpLogin>emplogin(Map data)async{
   return EmpLogin.fromJson(jsonDecode(response.body));
 }
 
-class ApplyLeave{
+class ApplyeLeave{
   Map data;
-  ApplyLeave(this.data);
+  ApplyeLeave(this.data);
 
-  factory ApplyLeave.fromJson(Map<String,dynamic> json){
-    return ApplyLeave(json);
+  factory ApplyeLeave.fromJson(Map<String,dynamic> json){
+    return ApplyeLeave(json);
   }
 
 }
-Future<ApplyLeave>applyleave(Map data)async{
+Future<ApplyeLeave>applyleave(Map data)async{
   var url='http://127.0.0.1:8000/api/leave/';
   var response=await http.post(url,body:data);
   print(response.body);
-  return ApplyLeave(jsonDecode(response.body));
+  return ApplyeLeave(jsonDecode(response.body));
 }
-class AllLeave{
+class AlleLeave{
   Map data;
-  AllLeave(this.data);
-  factory AllLeave.frimJson(Map<String,dynamic> json){
-    return AllLeave(json);
+  AlleLeave(this.data);
+  factory AlleLeave.frimJson(Map<String,dynamic> json){
+    return AlleLeave(json);
   }
 }
-Future<AllLeave>allleave(Map data)async{
+Future<AlleLeave>allleave(Map data)async{
   var url='http://127.0.0.1:8000/api/getleaves/?'+'email='+data['email'];
   var response=await http.get(url);
   print(response.body);
-  return AllLeave(jsonDecode(response.body));
+  return AlleLeave(jsonDecode(response.body));
 }
 class Work{
   Map data;

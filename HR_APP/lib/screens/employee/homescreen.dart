@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:HR_APP/screens/employee/applyleave.dart';
 import 'package:HR_APP/screens/employee/all_leaves.dart';
 import 'package:HR_APP/screens/employee/homescreen.dart';
+import 'package:HR_APP/services/requests.dart';
 class EmployeeHomeScreen extends StatefulWidget {
   String email;
   EmployeeHomeScreen(this.email);
@@ -16,7 +17,7 @@ class EmployeeHomeScreenState extends State<EmployeeHomeScreen> {
   EmployeeHomeScreenState(this.email);
   @override
   Widget build(BuildContext context) {
-    
+        var _works=[{'description':'Python API','due_date':'20/01/21','start_date':'01/01/2021'},{'description':'Flutter app','due_date':'20/02/21','start_date':'21/01/2021'},{'description':'Rest API in node js','due_date':'20/03/21','start_date':'01/03/2021'},{'description':'Testing','due_date':'20/04/21','start_date':'05/04/2021'},];
         return Scaffold(
           appBar: AppBar(
             title: Container(
@@ -54,7 +55,11 @@ class EmployeeHomeScreenState extends State<EmployeeHomeScreen> {
             ],
             backgroundColor: Colors.blueGrey[300],
           ),
-          body:  Container(
+          body:  FutureBuilder(
+            future: works({'email':email}),
+            builder:(context,snapshot){
+              print(snapshot.data.data);
+              return Container(
             height: 700,
             child:Center(
             child: Column(
@@ -75,17 +80,27 @@ class EmployeeHomeScreenState extends State<EmployeeHomeScreen> {
                 return Card(
                   child: Container(
                     height: 100,
-                    child:Text('hello'),
+                    child:Center(child: Column(children: [
+                      Container(child: Row(children:[
+                        Text('Description:'+_works[count]['description']),
+                      ]),),
+                      Container(child: Row(children:[
+                        Text('Start date of the project :'+_works[count]['start_date']),
+                      ]),),
+                      Container(child: Row(children:[
+                        Text('Project Deadline:'+_works[count]['due_date']),
+                      ]),)
+                    ],),),
                   ),
                 );
               },
-              itemCount:10
+              itemCount:_works.length
               ),
               
         ),],
       ),
         ),
-      ),
+      );}),
     );
   }
 }

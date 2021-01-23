@@ -17,7 +17,9 @@ class Addemployee extends StatelessWidget{
       title: Text('Add employes')
         ),
         body: Center(
-          child: Column(
+          child: Container(
+            height: 700,
+            child:Column(
             children: [
               /*Container(
                 height: 100,
@@ -25,11 +27,12 @@ class Addemployee extends StatelessWidget{
                 child:
               ),*/
               SizedBox(height:50),
+              Text('Name of the employee'),
               Container(
-                height:50,
+                height:55,
                 width: 300,
                 
-                child: Stack(
+                child: Column(
                   children: [
                     TextFormField(
                   
@@ -46,6 +49,7 @@ class Addemployee extends StatelessWidget{
 
               ),
               SizedBox(height:20),
+              Text('Email of employee'),
               Container(
                 height:50,
                 width: 300,
@@ -62,6 +66,7 @@ class Addemployee extends StatelessWidget{
 
               ),
               SizedBox(height:20),
+              Text('Password for the account'),
               Container(
                 height:50,
                 width: 300,
@@ -77,6 +82,7 @@ class Addemployee extends StatelessWidget{
                 ),
 
               ),
+              SizedBox(height:20),
                Container(
                         height: 50,
                         width: 300,
@@ -100,6 +106,7 @@ class Addemployee extends StatelessWidget{
                         )
                     ),
             ],
+          ),
           ),
         ),
     );

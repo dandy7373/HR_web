@@ -78,14 +78,17 @@ class AssignWorkView(APIView):
     def post(self,request,*args,**kwargs):
         user=UserOrganization.objects.get(email=request.data['email'])
         print(user.employees)
+        print(user.employees is None)
         if user.employees is None:
             lis=[]
+            return Response('No employees',HTTP_400_BAD_REQUEST)
         else:
             lis=list(user.employees)
 
         for i in range(len(lis)):
             try:
-                ind=Userprofile.objects.get(_id=ObjectId(lis[i]['id']))
+                ind=Userprofile.objects.get(_id=ObjectId(lis[i]['_id']))
+                print(ind)
                 if ind.workassigned is None:
                     work=[]
                 else:
